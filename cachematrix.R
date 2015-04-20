@@ -23,6 +23,9 @@ makeCacheMatrix <- function(x = matrix()) {
         # The Get function returns the matrix
         get <- function() x
         # The setInverse function sets the value to computed
+        # This works because the super assignment operator <<- will go up in 
+        # scope to the inervse variable defined by the makeCacheMatrix 
+        # environment.  It exploits the lexical scoping rules of R.
         setInverse <- function(inverseComputed) inverse <<- inverseComputed
         # The getInverse function returns the current value of the Inverse
         getInverse <- function() inverse
